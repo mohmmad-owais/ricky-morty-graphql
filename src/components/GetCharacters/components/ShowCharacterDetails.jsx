@@ -43,34 +43,34 @@ const ShowCharacterDetails = ({ setShowModal, characterId }) => {
             </div>
             {/*body*/}
             <div className="relative p-6 text-xl flex flex-wrap">
-              <div className="w-2/5 mb-2 ">
-                <label className="">Status:</label>
+              <div className="w-2/5 mb-2 flex ">
+                <label className="w-20">Status:</label>
 
                 <label className="ml-3">{character?.status}</label>
               </div>
-              <div className="w-2/5 mb-2 ">
-                <label>Specie:</label>
+              <div className="w-2/5 mb-2 flex ">
+                <label className="w-20">Specie:</label>
 
                 <label className="ml-3">{character?.species}</label>
               </div>
-              <div className="w-2/5 mb-2 ">
-                <label>Gender:</label>
+              <div className="w-2/5 mb-2 flex ">
+                <label className="w-20">Gender:</label>
 
                 <label className="ml-3">{character?.gender}</label>
               </div>
-              <div className="w-2/5  mb-2">
-                <label>Created:</label>
+              <div className="w-2/5  mb-2 flex">
+                <label className="w-20">Created:</label>
 
                 <label className="ml-3">{date}</label>
               </div>
 
-              <div className="w-2/5  mb-2">
-                <label>Origin:</label>
+              <div className="w-2/5  mb-2 flex">
+                <label className="w-20">Origin:</label>
 
                 <label className="ml-3">{character?.origin.name}</label>
               </div>
-              <div className="w-2/5  mb-2">
-                <label>Location:</label>
+              <div className="w-2/5  mb-2 flex">
+                <label className="w-20">Location:</label>
 
                 <label className="ml-3">{character?.location.name}</label>
               </div>
