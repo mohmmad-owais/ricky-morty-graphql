@@ -1,13 +1,27 @@
 import React, { useEffect, useState } from "react";
 
-import { useQuery, gql } from "@apollo/client";
-import { GET_CHARACTER } from "../../graphql/Queries";
+import { useQuery } from "@apollo/client";
+import { GET_CHARACTERS } from "../../graphql/Queries";
+import ShowCharacterDetails from "./components/ShowCharacterDetails";
 
 const GetCharacters = () => {
-  const { error, loading, data } = useQuery(GET_CHARACTER);
+  const [pageVal, setPageVal] = useState(1);
+
+  const [characterId, setCharacterId] = useState(0);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const { error, loading, data } = useQuery(GET_CHARACTERS, {
+    variables: { page: pageVal },
+  });
 
   const [characters, setCharacters] = useState([]);
   const [search, setSearch] = useState("");
+
+  function statusUpdadte(id) {
+    setShowModal(true);
+    setCharacterId(id);
+  }
 
   useEffect(() => {
     if (loading) {
@@ -61,7 +75,11 @@ const GetCharacters = () => {
               }
             })
             .map((item) => (
-              <div key={item.id}>
+              <div
+                key={item.id}
+                onClick={() => statusUpdadte(item.id)}
+                className="cursor-pointer hover:scale-105 hover:transition"
+              >
                 {/* Display Character Card */}
                 <div className="w-[35rem] flex bg-zinc-700 rounded-lg m-3">
                   <img
@@ -91,6 +109,12 @@ const GetCharacters = () => {
                 </div>
               </div>
             ))}
+          {showModal ? (
+            <ShowCharacterDetails
+              characterId={characterId}
+              setShowModal={setShowModal}
+            />
+          ) : null}
         </div>
       )}
     </div>
