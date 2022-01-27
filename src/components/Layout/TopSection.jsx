@@ -1,5 +1,4 @@
 import React from "react";
-import "./Layout.css";
 import logo from "./../../assets/imgs/logo.jpg";
 import bg from "./../../assets/imgs/bg.avif";
 
