@@ -23,6 +23,14 @@ const GetCharacters = () => {
     setCharacterId(id);
   }
 
+  function pageValue() {
+    if (pageVal < 1) {
+      setPageVal(0);
+    } else {
+      setPageVal(pageVal - 1);
+    }
+  }
+
   useEffect(() => {
     if (loading) {
       return console.log("Loading.!");
@@ -109,6 +117,7 @@ const GetCharacters = () => {
                 </div>
               </div>
             ))}
+
           {showModal ? (
             <ShowCharacterDetails
               characterId={characterId}
@@ -117,6 +126,26 @@ const GetCharacters = () => {
           ) : null}
         </div>
       )}
+      <div className="flex justify-center">
+        <button
+          type="button"
+          disabled={pageVal === 1}
+          className={` ${
+            pageVal === 1 && "bg-slate-500 hover:bg-slate-500 cursor-pointer"
+          }  bg-transparent mr-3 hover:bg-blue-500 text-white font-semibold
+           hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded`}
+          onClick={pageValue}
+        >
+          Previous
+        </button>
+        <button
+          type="button"
+          className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          onClick={() => setPageVal(pageVal + 1)}
+        >
+          Load More
+        </button>
+      </div>
     </div>
   );
 };
