@@ -131,7 +131,7 @@ const GetCharacters = () => {
           type="button"
           disabled={pageVal === 1}
           className={` ${
-            pageVal === 1 && "bg-slate-500 hover:bg-slate-500 cursor-pointer"
+            pageVal === 1 && "bg-slate-600 hover:bg-slate-700 cursor-pointer"
           }  bg-transparent mr-3 hover:bg-blue-500 text-white font-semibold
            hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded`}
           onClick={pageValue}
